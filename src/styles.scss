@@ -1,0 +1,90 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$hotel-primary: mat.define-palette(mat.$indigo-palette);
+$hotel-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+$hotel-warn: mat.define-palette(mat.$red-palette);
+
+$hotel-theme: mat.define-light-theme((
+  color: (
+    primary: $hotel-primary,
+    accent: $hotel-accent,
+    warn: $hotel-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+@include mat.all-component-themes($hotel-theme);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.page-title {
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-2 {
+  margin-top: 16px;
+}
+
+.mb-2 {
+  margin-bottom: 16px;
+}
+
+.star-rating {
+  color: #ffc107;
+}
+
+.price {
+  color: #4caf50;
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 12px;
+  }
+  
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
