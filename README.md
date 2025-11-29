@@ -1,6 +1,7 @@
+<<<<<<< HEAD
 # Hotel Booking Angular Application
 
-A full-featured hotel booking website built with Angular 17, Firebase, and Angular Material.
+A full-featured hotel booking website built with Angular 17, Supabase, and Angular Material.
 
 ## Features
 
@@ -13,7 +14,7 @@ A full-featured hotel booking website built with Angular 17, Firebase, and Angul
 - **Responsive Design**: Works on desktop and mobile devices
 
 ### Authentication
-- User signup and login with Firebase Authentication
+- User signup and login with Supabase Authentication
 - Protected routes for authenticated users
 - Admin-only access for hotel management
 
@@ -32,8 +33,8 @@ A full-featured hotel booking website built with Angular 17, Firebase, and Angul
 
 - **Frontend**: Angular 17 (Standalone Components)
 - **UI Library**: Angular Material
-- **Backend/Database**: Firebase (Firestore)
-- **Authentication**: Firebase Auth
+- **Backend/Database**: supabase (supabase studio)
+- **Authentication**: supabase Studio Auth
 - **Styling**: SCSS
 
 ## Project Structure
@@ -93,9 +94,9 @@ src/
 └── styles.scss
 ```
 
-## Firebase Setup
+## supabase Setup
 
-1. Create a new Firebase project at [Firebase Console](https://console.firebase.google.com/)
+1. Create a new supabase project at [supabase Studio](https://supabase.com)
 
 2. Enable **Authentication** with Email/Password provider
 
@@ -105,14 +106,14 @@ src/
    - `ratings`
    - `users`
 
-4. Update `src/environments/environment.ts` with your Firebase config:
+4. Update `src/environments/environment.ts` with your supabase config:
 
 ```typescript
 export const environment = {
   production: false,
-  firebase: {
+  Supabase: {
     apiKey: 'YOUR_API_KEY',
-    authDomain: 'YOUR_PROJECT_ID.firebaseapp.com',
+    authDomain: 'YOUR_PROJECT_ID.Supabaseapp.com',
     projectId: 'YOUR_PROJECT_ID',
     storageBucket: 'YOUR_PROJECT_ID.appspot.com',
     messagingSenderId: 'YOUR_SENDER_ID',
@@ -182,7 +183,7 @@ ng serve
 To create an admin user, you need to manually set the `role` field to `'admin'` in the Firestore users collection for the desired user document.
 
 1. Create a regular account through the signup page
-2. Go to Firebase Console > Firestore
+2. Go to Supabase Console > Firestore
 3. Find the user document in the `users` collection
 4. Change the `role` field from `'user'` to `'admin'`
 
@@ -221,3 +222,6 @@ The build artifacts will be stored in the `dist/hotel-booking` directory.
 ## License
 
 MIT
+=======
+# hotel-booking
+>>>>>>> acdbe50077390cde3c28603c698e3315c1004a16
