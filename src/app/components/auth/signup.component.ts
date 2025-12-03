@@ -135,8 +135,8 @@ export class SignupComponent {
       this.snackBar.open('Account created successfully!', 'Close', { duration: 3000 });
     } catch (error: any) {
       let message = 'Signup failed. Please try again.';
-      if (error?.code === 'auth/email-already-in-use') message = 'An account with this email already exists.';
-      else if (error?.code === 'auth/weak-password') message = 'Password is too weak.';
+      if (error?.message?.includes('already registered')) message = 'An account with this email already exists.';
+      else if (error?.message) message = error.message;
       this.snackBar.open(message, 'Close', { duration: 3000 });
     } finally {
       this.isSubmitting.set(false);

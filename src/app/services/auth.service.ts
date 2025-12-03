@@ -55,10 +55,12 @@ export class AuthService {
     this.isLoading.set(true);
 
     try {
+      // Signup without email verification
       const { data: authData, error } = await this.supabase.auth.signUp({
         email: data.email,
         password: data.password,
         options: {
+          emailRedirectTo: `${window.location.origin}/auth/callback`,
           data: {
             display_name: data.displayName,
             displayName: data.displayName,
@@ -73,9 +75,19 @@ export class AuthService {
       }
 
       if (authData.user) {
+        // If email confirmation is disabled in Supabase, the user is immediately confirmed
+        // Otherwise, you may need to auto-login or prompt user to verify email
         this.setUserFromSession(authData.user);
-        this.router.navigate(['/']);
+        
+        // Navigate after a brief delay to ensure state is updated
+        setTimeout(() => {
+          this.router.navigate(['/']);
+        }, 1000);
       }
+    } catch (error: any) {
+      console.error('Signup error:', error);
+      this.errorMessage.set(error?.message || 'Signup failed. Please try again.');
+      throw error;
     } finally {
       this.isLoading.set(false);
     }
